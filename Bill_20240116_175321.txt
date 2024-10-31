@@ -1,0 +1,4 @@
+Bill Number: 1
+Date: 2024-01-16 17:53:18
+Total Amount: $25.0
+BillItem{bookISBN=001, bookTitle='Book1', quantity=1, unitPrice=25.0, subtotal=25.0}
