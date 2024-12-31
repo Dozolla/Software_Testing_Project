@@ -29,7 +29,9 @@ Administrator One
 admin1
 
 ### CONTRIBUTORS
-*Adi Salaj*
+*Adi Salaj* 
+
 *Arlind Alliu*
+
 *Denaldo Selala*
 
