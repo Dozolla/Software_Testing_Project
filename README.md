@@ -19,13 +19,13 @@ It includes dependencies like javaFX(gui), jUnit and mockito(testing). JavaFx ve
 
 ### **Sample data for testing (for login)**
 
-Librarian One
+Librarian One ->
 librarian1password
 
-Manager One
+Manager One ->
 manager1password
 
-Administrator One
+Administrator One ->
 admin1
 
 ### CONTRIBUTORS
