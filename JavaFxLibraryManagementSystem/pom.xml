@@ -10,45 +10,49 @@
     <name>JavaFxLibraryManagementSystem</name>
 
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.0</junit.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>23.0.1</version>
+            <artifactId>javafx-swing</artifactId>
+            <version>17.0.13</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>23.0.1</version>
+            <version>17.0.13</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>23.0.1</version>
+            <version>17.0.13</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <version>23.0.1</version>
+            <version>17.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>17.0.13</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
-            <version>23.0.1</version>
+            <version>17.0.13</version>
         </dependency>
         <dependency>
-            <groupId>org.controlsfx</groupId>
-            <artifactId>controlsfx</artifactId>
-            <version>11.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dlsc.formsfx</groupId>
-            <artifactId>formsfx-core</artifactId>
-            <version>11.6.0</version>
+                <groupId>com.dlsc.formsfx</groupId>
+                <artifactId>formsfx-core</artifactId>
+                <version>11.6.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
@@ -78,6 +82,11 @@
             <version>0.4.0</version>
         </dependency>
         <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>11.2.1</version>
+        </dependency>
+        <dependency>
             <groupId>eu.hansolo</groupId>
             <artifactId>tilesfx</artifactId>
             <version>11.48</version>
@@ -100,18 +109,20 @@
             </exclusions>
         </dependency>
 
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>5.8.2</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>5.11.0</version>
-                <scope>test</scope>
-            </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.15.2</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
@@ -119,12 +130,13 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>5.8.2</version>
-                <scope>test</scope>
-            </dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 

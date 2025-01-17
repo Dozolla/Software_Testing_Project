@@ -3,27 +3,30 @@ package com.example.javafxlibrarymanagementsystem.model;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
 
 public class LibraryModelTest {
-    // Test
+
     @Test
-    public void testAddBook() {
-        // Create the Library Model
+    public void testAddBookWithMock() {
+        // Create the mocked Book object
+        Book mockedBook = mock(Book.class);
+
+        // Set up mock behavior for the Book (optional)
+        when(mockedBook.getISBN()).thenReturn("123456789");
+        when(mockedBook.getAuthor()).thenReturn("F. Scott Fitzgerald");
+
+        // Create the LibraryModel instance
         LibraryModel libraryModel = new LibraryModel();
 
-//        Book b = mock(Book.class);
+        // Add the mocked Book to the LibraryModel
+        libraryModel.addBook(mockedBook);
 
+        // Verify that the book was added
+        assertTrue(libraryModel.getAllBooks().contains(mockedBook), "Mocked book was not successfully added to the library model.");
 
-        // Create the Book
-        Book book = new Book("123456789", "F. Scott Fitzgerald", "good", "Noci", "Ismalin",10, "12.12.2007",2.0,3.0, 4.0, "" );
-
-        // Add the Book
-        libraryModel.addBook(book);
-
-
-        // Check if the Book was added
-        assertTrue(libraryModel.getAllBooks().contains(book));
-
+        // Verify interactions with the mock (optional)
+        verify(mockedBook, atLeastOnce()).getISBN();
+        verify(mockedBook, atLeastOnce()).getAuthor();
     }
-
 }
