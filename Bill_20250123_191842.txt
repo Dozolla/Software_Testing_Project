@@ -1,0 +1,4 @@
+Bill Number: 1
+Date: 2025-01-23 19:18:40
+Total Amount: $32.0
+BillItem{bookISBN=1245151312, bookTitle='MIRA', quantity=2, unitPrice=16.0, subtotal=32.0}

@@ -464,4 +464,11 @@ public class LibraryModel {
         saveData(); // Save data after updating permissions
     }
 
+    public boolean isLibrarianCanAddBooks() {
+        return librarianCanAddBooks;
+    }
+
+    public boolean isManagerCanAddBooks() {
+        return managerCanAddBooks;
+    }
 }
