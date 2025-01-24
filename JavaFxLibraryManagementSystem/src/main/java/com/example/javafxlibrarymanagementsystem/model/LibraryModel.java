@@ -19,6 +19,7 @@ public class LibraryModel {
     private List<String> authors;
     private boolean librarianCanAddBooks;
     private boolean managerCanAddBooks;
+
     public LibraryModel() {
         this.books = new ArrayList<>();
         this.bills = new ArrayList<>();

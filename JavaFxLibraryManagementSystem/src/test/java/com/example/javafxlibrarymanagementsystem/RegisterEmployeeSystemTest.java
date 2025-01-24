@@ -60,10 +60,10 @@ class RegisterEmployeeSystemTest extends ApplicationTest {
     @Test
     void testLoginAndRegisterEmployee() {
         // Step 1: Login as admin
-        clickOn(".text-field").write("Administrator One");
+        clickOn(".text-field").write("admin1");
         sleep(500); // Optional for debugging
 
-        clickOn(".password-field").write("admin1");
+        clickOn(".password-field").write("password123");
         sleep(500);
 
         assertThat(lookup(".text-field").queryAs(TextField.class)).hasText("Administrator One");

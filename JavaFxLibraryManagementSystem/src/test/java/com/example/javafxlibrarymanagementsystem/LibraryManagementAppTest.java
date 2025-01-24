@@ -34,7 +34,7 @@ class LibraryManagementAppTest extends ApplicationTest {
         sleep(1000);
 //        assertThat(lookup(".text-field").queryAs(TextField.class)).hasText("Administrator One");
         // click on the second text field
-        clickOn(".password-field").clickOn(".password-field").write("admin1");
+        clickOn(".password-field").write("admin1");
         sleep(1000);
 
         clickOn(".button");
