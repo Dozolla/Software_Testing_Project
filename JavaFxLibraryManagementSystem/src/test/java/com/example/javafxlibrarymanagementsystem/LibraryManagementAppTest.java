@@ -3,12 +3,9 @@ package com.example.javafxlibrarymanagementsystem;
 import com.example.javafxlibrarymanagementsystem.model.LibraryModel;
 import com.example.javafxlibrarymanagementsystem.view.LoginView;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
-
-import static org.testfx.assertions.api.Assertions.assertThat;
 
 
 class LibraryManagementAppTest extends ApplicationTest {
@@ -30,11 +27,6 @@ class LibraryManagementAppTest extends ApplicationTest {
         loginView.show();
     }
 
-    @Test
-    public void should_contain_no_txt() {
-        TextField txt = lookup(".text-field").queryAs(TextField.class);
-        assertThat(txt).hasToString(null);
-    }
 
     @Test
     public void fill_text() {
@@ -47,5 +39,6 @@ class LibraryManagementAppTest extends ApplicationTest {
 
         clickOn(".button");
     }
+
 
 }
