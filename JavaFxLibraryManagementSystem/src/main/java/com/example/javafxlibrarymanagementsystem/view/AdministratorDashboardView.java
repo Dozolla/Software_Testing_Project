@@ -11,18 +11,13 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -134,6 +129,7 @@ public class AdministratorDashboardView {
         initializeLowStockAlertsTimeline();
         // Initialize books table
         booksTable = new TableView<>();
+        booksTable.setId("booksTable");
         booksTable.getColumns().addAll(isbnColumn, titleColumn, authorColumn, sellingPriceColumn, categoryColumn,
                 supplierColumn, stockColumn, purchasedDateColumn, purchasedPriceColumn, originalPriceColumn, bookCoverColumn);
 
@@ -150,15 +146,19 @@ public class AdministratorDashboardView {
         MenuBar menuBar = new MenuBar();
 
         Menu bookMenu = new Menu("Books");
+        bookMenu.setId("bookMenu");
         Menu authorMenu = new Menu("Authors");
+        authorMenu.setId("authorMenu");
         Menu categoryMenu = new Menu("Categories");
         Menu stockMenu = new Menu("Stock");
         Menu performanceMenu = new Menu("Performance");
         Menu statisticsMenu = new Menu("Statistics");
         Menu employeesMenu = new Menu("Employees");
+        employeesMenu.setId("employeesMenu");
 
         // Create menu items
         MenuItem addBookMenuItem = new MenuItem("Add Book");
+        addBookMenuItem.setId("addBookMenuItem");
         MenuItem checkOutBookMenuItem = new MenuItem("Checkout books");
         MenuItem createAuthorMenuItem = new MenuItem("Create New Author");
         MenuItem addCategoryMenuItem = new MenuItem("Add Category");
@@ -171,6 +171,7 @@ public class AdministratorDashboardView {
         MenuItem permissionsMenuItem = new MenuItem("Permissions");
         // Add "Manage Employees" menu items
         MenuItem registerEmployeeMenuItem = new MenuItem("Register Employee");
+        registerEmployeeMenuItem.setId("registerEmployee");
         MenuItem modifyEmployeeMenuItem = new MenuItem("Modify Employee");
         MenuItem deleteEmployeeMenuItem = new MenuItem("Delete Employee");
 
@@ -282,6 +283,7 @@ public class AdministratorDashboardView {
     private void initializeUserTable() {
         // Initialize user table and columns
         usersTable = new TableView<>();
+        usersTable.setId("usersTable");
 
         nameColumn = new TableColumn<>("Name");
         birthdayColumn = new TableColumn<>("Birthday");
@@ -304,7 +306,7 @@ public class AdministratorDashboardView {
     private void updateUsersTable() {
         // Retrieve all users from the library model
         List<User> users = libraryModel.getAllUsers();
-         System.out.println(users);
+        System.out.println(users);
         // Populate the user table
         ObservableList<User> observableUsers = FXCollections.observableArrayList(users);
         usersTable.setItems(observableUsers);
@@ -324,32 +326,41 @@ public class AdministratorDashboardView {
         Stage registerUserStage = new Stage();
         registerUserStage.setTitle("Register User");
 
-        // Initialize components for registering a new user
+        // Create components for registering a new user
         TextField nameField = new TextField();
         nameField.setPromptText("Name");
+        nameField.setId("nameField"); // Set ID
 
         TextField usernameField = new TextField();
         usernameField.setPromptText("Username");
+        usernameField.setId("usernameField"); // Set ID
 
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Password");
+        passwordField.setId("passwordField"); // Set ID
 
         TextField birthdayField = new TextField();
         birthdayField.setPromptText("Birthday");
+        birthdayField.setId("birthdayField"); // Set ID
 
         TextField phoneField = new TextField();
         phoneField.setPromptText("Phone");
+        phoneField.setId("phoneField"); // Set ID
 
         TextField emailField = new TextField();
         emailField.setPromptText("Email");
+        emailField.setId("emailField"); // Set ID
 
         TextField salaryField = new TextField();
         salaryField.setPromptText("Salary");
+        salaryField.setId("salaryField"); // Set ID
 
         TextField accessLevelField = new TextField();
         accessLevelField.setPromptText("Access Level");
+        accessLevelField.setId("accessLevelField"); // Set ID
 
         Button registerUserButton = new Button("Register User");
+        registerUserButton.setId("registerUserButton");
         registerUserButton.setOnAction(event -> adminController.handleRegisterUser(
                 nameField.getText(),
                 usernameField.getText(),
@@ -801,20 +812,26 @@ public class AdministratorDashboardView {
         // Initialize components for adding a new book
         newBookIsbnField = new TextField();
         newBookIsbnField.setPromptText("ISBN");
+        newBookIsbnField.setId("newBookIsbnField"); // Set ID
 
         newBookTitleField = new TextField();
         newBookTitleField.setPromptText("Title");
+        newBookTitleField.setId("newBookTitleField"); // Set ID
 
         newBookAuthorField = new TextField();
         newBookAuthorField.setPromptText("Author");
+        newBookAuthorField.setId("newBookAuthorField"); // Set ID
 
         newBookSellingPriceField = new TextField();
         newBookSellingPriceField.setPromptText("Selling Price");
+        newBookSellingPriceField.setId("newBookSellingPriceField"); // Set ID
 
         newBookCategoryField = new TextField();
         newBookCategoryField.setPromptText("Category");
+        newBookCategoryField.setId("newBookCategoryField"); // Set ID
 
         addBookButton = new Button("Add Book");
+        addBookButton.setId("addBookButton"); // Set ID
         addBookButton.setOnAction(event -> handleAddBook(addBookStage));
 
         // Add components to the layout
@@ -858,26 +875,32 @@ public class AdministratorDashboardView {
             // Create and add text fields
             TextField supplierField = new TextField();
             supplierField.setPromptText("Supplier");
+            supplierField.setId("supplierField"); // Set ID
             supplierField.setMinWidth(200);
 
             TextField stockField = new TextField();
             stockField.setPromptText("Stock");
+            stockField.setId("stockField"); // Set ID
             stockField.setMinWidth(200);
 
             TextField purchasedDateField = new TextField();
             purchasedDateField.setPromptText("Purchased Date");
+            purchasedDateField.setId("purchasedDateField"); // Set ID
             purchasedDateField.setMinWidth(200);
 
             TextField purchasedPriceField = new TextField();
             purchasedPriceField.setPromptText("Purchased Price");
+            purchasedPriceField.setId("purchasedPriceField"); // Set ID
             purchasedPriceField.setMinWidth(200);
 
             TextField originalPriceField = new TextField();
             originalPriceField.setPromptText("Original Price");
+            originalPriceField.setId("originalPriceField"); // Set ID
             originalPriceField.setMinWidth(200);
 
             TextField bookCoverImagePathField = new TextField();
             bookCoverImagePathField.setPromptText("Book Cover Image Path");
+            bookCoverImagePathField.setId("bookCoverImagePathField"); // Set ID
             bookCoverImagePathField.setMinWidth(200);
 
             detailsDialog.getDialogPane().setContent(new VBox(10, supplierField, stockField, purchasedDateField, purchasedPriceField, originalPriceField, bookCoverImagePathField));
@@ -915,7 +938,7 @@ public class AdministratorDashboardView {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Book Added");
             alert.setHeaderText("New book added successfully!");
-            alert.showAndWait();
+//            alert.showAndWait();
 
             // Refresh the books table after adding a new book
             updateBooksTable();

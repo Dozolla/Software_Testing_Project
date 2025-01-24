@@ -75,17 +75,49 @@ class AddBookSystemTest extends ApplicationTest {
         // Click the login button
         clickOn(".button");
 
+        sleep(500);
+
         // Verify login (you might want to check for a change in the stage title or presence of a dashboard)
         verifyThat(window("Administrator Dashboard"), WindowMatchers.isShowing());
 
         // Add book after login
-        clickOn("#addBookMenuItem"); // Use proper IDs for menu items or buttons
+        clickOn("#bookMenu");
+        sleep(500);
+        clickOn("#addBookMenuItem");
+        sleep(500);
         clickOn("#newBookIsbnField").write("1234567890");
+        sleep(500);
         clickOn("#newBookTitleField").write("Test Book Title");
+        sleep(500);
         clickOn("#newBookAuthorField").write("Test Author");
+        sleep(500);
         clickOn("#newBookSellingPriceField").write("19.99");
+        sleep(500);
         clickOn("#newBookCategoryField").write("Fiction");
+        sleep(500);
         clickOn("#addBookButton");
+        sleep(500);
+
+        // Fill in the details dialog
+        clickOn("#supplierField").write("Test Supplier");
+        sleep(500);
+        clickOn("#stockField").write("50");
+        sleep(500);
+        clickOn("#purchasedDateField").write("2025-01-01");
+        sleep(500);
+        clickOn("#purchasedPriceField").write("10.00");
+        sleep(500);
+        clickOn("#originalPriceField").write("15.00");
+        sleep(500);
+        clickOn("#bookCoverImagePathField").write("C:/images/test_book_cover.jpg");
+        sleep(500);
+
+        // Confirm the dialog
+        clickOn("Add Book");
+        sleep(500);
+
+//        clickOn(".button");
+//        sleep(500);
 
         // Verify the book was added (check the table or list for the new entry)
         verifyThat("#booksTable", TableViewMatchers.hasTableCell("Test Book Title"));

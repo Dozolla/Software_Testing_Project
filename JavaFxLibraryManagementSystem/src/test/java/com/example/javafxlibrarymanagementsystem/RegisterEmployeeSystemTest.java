@@ -66,8 +66,8 @@ class RegisterEmployeeSystemTest extends ApplicationTest {
         clickOn(".password-field").write("password123");
         sleep(500);
 
-        assertThat(lookup(".text-field").queryAs(TextField.class)).hasText("Administrator One");
-        assertThat(lookup(".password-field").queryAs(PasswordField.class)).hasText("admin1");
+        assertThat(lookup(".text-field").queryAs(TextField.class)).hasText("admin1");
+        assertThat(lookup(".password-field").queryAs(PasswordField.class)).hasText("password123");
 
         clickOn(".button");
 
@@ -75,17 +75,28 @@ class RegisterEmployeeSystemTest extends ApplicationTest {
         verifyThat(window("Administrator Dashboard"), WindowMatchers.isShowing());
 
         // Step 2: Open Register Employee dialog
-        clickOn("#registerEmployeeMenuItem"); // Use the appropriate ID for the menu item
+        clickOn("#employeesMenu");
+        sleep(500);
+        clickOn("#registerEmployee");
+        sleep(500);
 
         // Step 3: Fill in employee details
         clickOn("#nameField").write("John Doe");
+        sleep(200);
         clickOn("#usernameField").write("johndoe");
+        sleep(200);
         clickOn("#passwordField").write("password123");
+        sleep(200);
         clickOn("#birthdayField").write("1990-05-15");
+        sleep(200);
         clickOn("#phoneField").write("1234567891");
+        sleep(200);
         clickOn("#emailField").write("johndoe@example.com");
+        sleep(200);
         clickOn("#salaryField").write("40000");
+        sleep(200);
         clickOn("#accessLevelField").write("LIBRARIAN");
+        sleep(200);
 
         // Step 4: Submit the registration
         clickOn("#registerUserButton");
