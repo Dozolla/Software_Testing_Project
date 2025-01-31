@@ -1,7 +1,7 @@
 package com.example.javafxlibrarymanagementsystem.model;
 
 import java.io.Serializable;
-import javafx.beans.property.*;
+import java.util.List;
 
 public class Book implements Serializable {
     // Attributes
@@ -33,6 +33,31 @@ public class Book implements Serializable {
         this.sellingPrice = sellingPrice;
         this.bookCoverImagePath = bookCoverImagePath;
     }
+
+
+
+    /// do decrease stock method for book.
+
+    static boolean decreaseBookStock(List<Book> books, String ISBN, int quantity) {
+        if (books == null || ISBN == null || ISBN.isEmpty() || quantity <= 0) {
+            return false; // Invalid input
+        }
+
+        for (Book book : books) {
+            if (book.getISBN().equals(ISBN)) {
+                int currentStock = book.getStock();
+                if (currentStock >= quantity) {
+                    book.setStock(currentStock - quantity);
+                } else {
+                    book.setStock(0); // Set stock to zero if quantity exceeds current stock
+                }
+                return true;
+            }
+        }
+        return false; // Book not found
+    }
+
+
 
     // Getters and Setters
     public String getISBN() {
