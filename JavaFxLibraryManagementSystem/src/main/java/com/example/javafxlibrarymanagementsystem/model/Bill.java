@@ -20,6 +20,13 @@ public class Bill implements Serializable {
         this.totalAmount = 0.0;
     }
 
+    public Bill(int billNumber, String creationDate, double totalAmount) {
+        this.billNumber = billNumber;
+        this.billItems = new ArrayList<>();
+        this.creationDate = creationDate;
+        this.totalAmount = totalAmount;
+    }
+
     /// input:  get a list of bills, and a number, and return the bill with that number
 
     public static Bill findBillByNumber(List<Bill> bills, int billNumber) {
@@ -45,6 +52,33 @@ public class Bill implements Serializable {
         System.out.println("No bill found with bill number: " + billNumber);
         return null;
     }
+
+    /// input: get a list of bills, and a number, and return exact number of bills with the most total amount
+
+    public static List<Bill> getTopNBillsByTotalAmount(List<Bill> bills, int n) {
+        // Handle edge cases
+        if (bills == null || bills.isEmpty() || n <= 0) {
+            return new ArrayList<>();
+        }
+
+        List<Bill> topBills = new ArrayList<>();
+
+        for (Bill bill : bills) {
+            int i = 0;
+            while (i < topBills.size() && topBills.get(i).getTotalAmount() > bill.getTotalAmount()) {
+                i++;
+            }
+            topBills.add(i, bill);
+
+            if (topBills.size() > n) {
+                topBills.remove(n);
+            }
+        }
+
+        return topBills;
+    }
+
+
 
     public int getBillNumber() {
         return billNumber;
