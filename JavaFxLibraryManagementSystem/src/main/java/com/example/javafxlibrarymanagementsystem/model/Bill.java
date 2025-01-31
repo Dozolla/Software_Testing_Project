@@ -20,6 +20,32 @@ public class Bill implements Serializable {
         this.totalAmount = 0.0;
     }
 
+    /// input:  get a list of bills, and a number, and return the bill with that number
+
+    public static Bill findBillByNumber(List<Bill> bills, int billNumber) {
+        if (bills == null) {
+            System.out.println("The bills list is null.");
+            return null;
+        }
+
+        if (bills.isEmpty()) {
+            System.out.println("The bills list is empty.");
+            return null;
+        }
+
+        int index = 0;
+        while (index < bills.size()) {
+            Bill currentBill = bills.get(index);
+            if (currentBill.getBillNumber() == billNumber) {
+                return currentBill;
+            }
+            index++;
+        }
+
+        System.out.println("No bill found with bill number: " + billNumber);
+        return null;
+    }
+
     public int getBillNumber() {
         return billNumber;
     }
